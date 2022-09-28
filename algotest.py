@@ -34,13 +34,14 @@ def first_transaction_example(private_key, my_address):
     # build transaction
     params = algod_client.suggested_params()
     # comment out the next two (2) lines to use suggested fees
-    params.flat_fee = constants.MIN_TXN_FEE 
-    params.fee = 1000
+    #params.flat_fee = constants.MIN_TXN_FEE 
+    #params.fee = 1000
     receiver = "HZ57J3K46JIJXILONBBZOHX6BKPXEM2VVXNRFSUED6DKFD5ZD24PMJ3MVA"
     amount = 100000
     note = "Hello World".encode()
 
     unsigned_txn = transaction.PaymentTxn(my_address, params, receiver, amount, None, note)
+    
 
     # sign transaction
     signed_txn = unsigned_txn.sign(private_key)
